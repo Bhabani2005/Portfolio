@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>portfolio</title>
+    <link href="./style.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/732625e7de.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="header">
+        <nav>
+            <h2 class="heading">Portfo<span>lio</span></h2>
+            <ul>
+                <li><a href="#header" class="list">Home</a></li>
+                <li><a href="#about" class="list">About</a></li>
+                <li><a href="#skills" class="list">Skills</a></li>
+                <li><a href="#service" class="list">Services</a></li>
+                <li><a href="#Contact-me" class="list">Contact Me</a></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <h4>Hello!  My name is</h4>
+            <h1>Bhabani <span>Charan Panda</span></h1>
+            <h3>Iam a <span class="type-text"></span></h3>
+            <div class="login">
+                <form name="submit-to-google-sheet">
+                    <input type="email" value="" placeholder="Enter your email">
+                    <button type="submit">Lets start</button> 
+                </form>
+                <span id="msg"></span>
+            </div>
+        </div>
+        <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+        <script>
+            var typed=new Typed(".type-text",{
+                strings: ["Student","Programmer","Frontend Developer"],
+                typeSpeed:200,
+                backSpeed:250,
+                loop:true               
+            })
+        </script>
+
+    </div>
+    <section id="about">
+        <div class="main">
+            <img src="./cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTAzL2stczI5LW5hdC0zMS1qb2IxLWwtam9iMTcyNV8xLnBuZw.webp">
+            <div class="about-text">
+                <h2>About <span>Me</span></h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet veniam unde vitae pariatur laboriosam ea, aliquam deserunt accusamus eligendi, totam dolorem ut rem, quibusdam neque tenetur fugit dolor dolorum ullam! </p>
+                <button type="button">Let's talk</button>
+            </div>
+    </section>
+    <div id="skills">
+        <div class="stitle">
+            <h2>My Skills</h2>
+        </div>
+        <div class="skillbox">
+         <li><h3>html</h3>
+            <span class="bar"><span class="html"></span></span>
+         </li>
+         <li><h3>css</h3>
+            <span class="bar"><span class="css"></span></span>
+         </li>
+         <li><h3>php</h3>
+            <span class="bar"><span class="php"></span></span>
+         </li>
+         <li><h3>javascript</h3>
+            <span class="bar"><span class="javascript"></span></span>
+         </li>
+        </div>
+    </div>
+    <div id="service">
+        <div class="title">
+            <h2>My Services</h2>
+        </div>
+        <div class="box">
+            <div class="card">
+                <i class="fa-solid fa-code"></i>
+                <h5>Web Development</h5>
+                <div class="pra">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus repudiandae quod similique eveniet deserunt exercitationem aliquam temporibus dolor repellendus nesciunt.</p>
+                    <p style="text-align: center;">
+                        <a class="button" href="#">Read More</a>
+                    </p>
+                </div>
+            </div>
+       
+        
+            <div class="card">
+                <i class="fa-brands fa-android"></i>                
+                <h5>App Design</h5>
+                <div class="pra">
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis magnam soluta dolores tempora nobis nemo illum tenetur numquam, delectus officiis!</p>
+                    <p style="text-align: center;">
+                        <a class="button" href="#">Read More</a>
+                    </p>
+                </div>
+            </div>
+        
+        
+            <div class="card">
+                <i class="fa-brands fa-figma"></i>                
+                <h5>UI/UX Design</h5>
+                <div class="pra">
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum ex sapiente eos quae aperiam ullam vitae dignissimos tempore ducimus adipisci.</p>
+                    <p style="text-align: center;">
+                        <a class="button" href="#">Read More</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="Contact-me">
+        <p>Let me get you a beautiful website.</p>
+        <a class="button-2" href="#">Hire me</a>
+
+    </div>
+    <footer>
+        <p>Bhabani Charan Panda</p>
+        <p>To know about me more contact me on my social media given link below:</p>
+        <div class="social">
+           <a href="#"><i class="fa-brands fa-instagram"></i></a>
+           <a href="https://www.linkedin.com/in/bhabani-charan-panda-5b0379275?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+           <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+        <p class="end">©2024 All rights reserved.</p>
+    </footer>
+    <script>
+        const scriptURL = '<https://script.google.com/macros/s/AKfycbyf-S7dfKenmbL2chouQBvI4Oc3f4J2g0BnSn2m0irqJ4Ireq5eRvWbBUG1SRId6WJ3/exec>'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById("msg")
+      
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msg.innerHTML="Message sent successfully"
+                setTimeout(function(){
+                    msg.innerHTML=""
+                },5000)
+                form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+
+</body>
+</html>
